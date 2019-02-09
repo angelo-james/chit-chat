@@ -4,8 +4,18 @@ import Chat from './src/components/Chat';
 import { createAppContainer, createStackNavigator } from 'react-navigation';
 
 const AppNavigator = createStackNavigator({
-  Main: { screen: Main },
-  Chat: { screen: Chat }
+    Main: { 
+      screen: Main,
+      navigationOptions: {
+        title: 'Main'
+      }
+    },
+    Chat: { 
+      screen: Chat,
+      navigationOptions: {
+        title: 'Main'
+      }
+    }
   },
   {
     initialRouteName: 'Main'
