@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { Text } from 'react-native';
 import { Card, CardSection, Button, Input } from '../common';
 
 class Main extends Component {
@@ -23,7 +23,7 @@ class Main extends Component {
 
         <CardSection>
           <Button
-            onPress={() => this.props.navigation.navigate('Chat')}
+            onPress={() => this.props.navigation.navigate('Chat', { username: this.state.username })}
           >
             Enter
           </Button>

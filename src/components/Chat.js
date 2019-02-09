@@ -3,10 +3,12 @@ import { View, Text } from 'react-native';
 
 class Chat extends Component {
   render() {
+    const { username } = this.props.navigation.state.params;
+
     return (
       <View>
         <Text>
-          Chat Screen
+          { username }
         </Text>
       </View>
     )
