@@ -1,11 +1,15 @@
 import Main from './src/components/Main';
 import Chat from './src/components/Chat';
 
-import { createStackNavigator } from 'react-navigation';
+import { createAppContainer, createStackNavigator } from 'react-navigation';
 
-const navigator = createStackNavigator({
+const AppNavigator = createStackNavigator({
   Main: { screen: Main },
   Chat: { screen: Chat }
-})
+  },
+  {
+    initialRouteName: 'Main'
+  }
+)
 
-export default navigator;
+export default createAppContainer(AppNavigator);
