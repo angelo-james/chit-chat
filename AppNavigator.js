@@ -13,7 +13,7 @@ const AppNavigator = createStackNavigator({
     Chat: { 
       screen: Chat,
       navigationOptions: {
-        title: 'Main'
+        title: 'Chat'
       }
     }
   },
