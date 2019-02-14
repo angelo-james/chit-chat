@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat';
+import Fire from '../../Fire';
 
 class Chat extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -11,14 +11,32 @@ class Chat extends Component {
     messages: []
   }
 
-  render() {
-    const { username } = this.props.navigation.state.params;
+  get user() {
+    return {
+      name: this.props.navigation.state.params.name,
+      _id: Fire.shared.uid,
+    };
+  }
 
+  render() {
     return (
-      <GiftedChat 
-        messages={this.state.messages} 
+      <GiftedChat
+        messages={this.state.messages}
+        onSend={Fire.shared.send}
+        
       />
-    )
+    );
+  }
+
+  componentDidMount() {
+    Fire.shared.on(message =>
+      this.setState(previousState => ({
+        messages: GiftedChat.append(previousState.messages, message),
+      }))
+    );
+  }
+  componentWillUnmount() {
+    Fire.shared.off();
   }
 }
 
