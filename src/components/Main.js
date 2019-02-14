@@ -4,7 +4,7 @@ import { Card, CardSection, Button, Input } from '../common';
 
 class Main extends Component {
   state = {
-    username: ''
+    name: ''
   }
 
   render() {
@@ -17,13 +17,13 @@ class Main extends Component {
             placeholder='Username'
             label='Username'
             value={this.state.username}
-            onChangeText={username => this.setState({ username })}
+            onChangeText={name => this.setState({ name })}
           />
         </CardSection>
 
         <CardSection>
           <Button
-            onPress={() => this.props.navigation.navigate('Chat', { username: this.state.username })}
+            onPress={() => this.props.navigation.navigate('Chat', { name: this.state.name })}
           >
             Enter
           </Button>
